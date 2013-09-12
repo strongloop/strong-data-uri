@@ -16,4 +16,18 @@ var uri = 'data:text/plain;base64,aGVsbG8gd29ybGQ=';
 var buffer = dataUri.decode(uri);
 console.log(buffer);
 // <Buffer 68 65 6c 6c 6f 20 77 6f 72 6c 64>
+console.log(buffer.toString('ascii'));
+// Hello world
 ```
+
+## Status
+
+The module can parse both base64-encoded and url-encoded URLs at the moment.
+
+Things that would be nice to have too:
+
+ * Parse mediaType information and extract charset (encoding) value. This is
+   needed to convert the returned Buffer into a string in cases where
+   the application has to support arbitrary encodings.
+
+ * Implement `encode()` function for creating data URLs.

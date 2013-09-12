@@ -10,5 +10,10 @@
   "strict": true,
   "newcap": true,
   "nonew": true,
-  "undef": true
+  "undef": true,
+  "globals": {
+    "describe": true,
+    "it": true,
+    "expect": true
+  }
 }

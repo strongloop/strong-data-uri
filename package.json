@@ -21,6 +21,7 @@
     "email": "miroslav@strongloop.com"
   },
   "dependencies": {
+    "truncate": "~1.0.2"
   },
   "devDependencies": {
     "mocha": "latest",

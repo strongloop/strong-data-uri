@@ -20,31 +20,30 @@
  */
 'use strict';
 
-var truncate = require('truncate');
+var expect = require('chai').expect;
 
-/**
- * Decode payload in the given data URI, return the result as a Buffer.
- * See [RFC2397](http://www.ietf.org/rfc/rfc2397.txt) for the specification
- * of data URL scheme.
- * @param {String} uri
- * @returns {Buffer}
- */
-function decode(uri) {
-  if (!/^data:/.test(uri))
-    throw new Error('Not a data URI: "' + truncate(uri, 20) + '"');
+var dataUri = require('..');
 
-  var commaIndex = uri.indexOf(',');
-  if (commaIndex < 0)
-    throw new Error('Invalid data URI "' + truncate(uri, 20) + '"');
+describe('decode', function() {
+  it('parses base64-encoded payload into a buffer', function() {
+    var buffer = dataUri.decode('data:text/plain;base64,aGVsbG8gd29ybGQ=');
+    expect(buffer).to.be.instanceOf(Buffer);
+    expect(buffer.toString('ASCII')).to.equal('hello world');
+  });
 
-  var header = uri.slice(0, commaIndex);
-  var body = uri.slice(commaIndex+1);
+  it('parses url-encoded payload into a buffer', function() {
+    var buffer = dataUri.decode('data:,hello%20world');
+    expect(buffer.toString('ASCII')).to.equal('hello world');
+  });
 
-  if (/;base64$/.test(header)) {
-    return new Buffer(body, 'base64');
-  } else {
-    return new Buffer(decodeURIComponent(body), 'ascii');
-  }
-}
+  it('throws when URI does not start with "data:"', function() {
+    expect(function() { dataUri.decode('http://foo/bar'); })
+      .to.throw(/^Not a data URI/);
+  });
 
-exports.decode = decode;
+  it('throws when URI does not contain comma', function() {
+    expect(function() { dataUri.decode('data:text/plain'); })
+      .to.throw(/^Invalid data URI/);
+  });
+});
+

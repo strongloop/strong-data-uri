@@ -5,12 +5,9 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "blanket": {
-      "pattern": "//^((?!(node_modules|test)).)*$/"
-    },
-    "coverage": "./node_modules/.bin/mocha -r blanket -R html-cov > coverage.html",
-    "test": "mocha --reporter spec",
-    "lint": "./node_modules/.bin/jshint *.js test"
+    "pretest": "./node_modules/.bin/jshint *.js test",
+    "test": "./node_modules/.bin/mocha --reporter spec",
+    "posttest": "./node_modules/.bin/mocha --require blanket -R html-cov > coverage.html"
   },
   "repository": {
     "type": "git",
@@ -31,5 +28,10 @@
   },
   "engines": {
     "node": ">=0.8.0"
+  },
+  "config": {
+    "blanket": {
+      "pattern": "//^((?!(node_modules|test)).)*$/"
+    }
   }
 }

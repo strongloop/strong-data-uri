@@ -21,10 +21,10 @@
     "truncate": "~1.0.2"
   },
   "devDependencies": {
-    "mocha": "latest",
-    "jshint": "latest",
+    "mocha": "~1.17.1",
+    "jshint": "~2.4.3",
     "istanbul": "~0.2.4",
-    "chai": "latest"
+    "chai": "~1.8.1"
   },
   "engines": {
     "node": ">=0.8.0"

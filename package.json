@@ -5,9 +5,9 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "pretest": "./node_modules/.bin/jshint *.js test",
-    "test": "./node_modules/.bin/mocha --reporter spec",
-    "posttest": "./node_modules/.bin/mocha --require blanket -R html-cov > coverage.html"
+    "pretest": "jshint *.js test",
+    "test": "istanbul test -- _mocha -R spec",
+    "posttest": "test -z $npm_config_coverage || istanbul report"
   },
   "repository": {
     "type": "git",
@@ -23,15 +23,10 @@
   "devDependencies": {
     "mocha": "latest",
     "jshint": "latest",
-    "blanket": "latest",
+    "istanbul": "~0.2.4",
     "chai": "latest"
   },
   "engines": {
     "node": ">=0.8.0"
-  },
-  "config": {
-    "blanket": {
-      "pattern": "//^((?!(node_modules|test)).)*$/"
-    }
   }
 }

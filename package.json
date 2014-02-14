@@ -2,7 +2,10 @@
   "name": "strong-data-uri",
   "version": "0.1.1",
   "description": "Parser for `data:` URIs",
-  "license": "MIT",
+  "license": {
+    "name": "Dual MIT/StrongLoop",
+    "url": "https://github.com/strongloop/strong-data-uri/blob/master/LICENSE"
+  },
   "main": "index.js",
   "scripts": {
     "pretest": "jshint *.js test",

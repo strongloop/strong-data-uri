@@ -5,7 +5,8 @@
 
 ## Overview
 strong-data-uri is implements a parser for retrieving data encoded
-in `data:` URIs specified by [RFC2397](http://www.ietf.org/rfc/rfc2397.txt).
+in `data:` URIs specified by [RFC2397](http://www.ietf.org/rfc/rfc2397.txt),
+as well as an encoder for those URIs.
 
 ## Usage
 
@@ -18,6 +19,13 @@ console.log(buffer);
 // <Buffer 68 65 6c 6c 6f 20 77 6f 72 6c 64>
 console.log(buffer.toString('ascii'));
 // Hello world
+
+uri = dataUri.encode('foo');
+console.log(uri);
+// data:application/octet-stream;base64,Zm9v
+uri = dataUri.encode(new Buffer('foo', 'utf8'), 'text/plain');
+console.log(uri);
+// data:text/plain;base64,Zm9v
 ```
 
 ## Status
@@ -29,5 +37,3 @@ Things that would be nice to have too:
  * Parse mediaType information and extract charset (encoding) value. This is
    needed to convert the returned Buffer into a string in cases where
    the application has to support arbitrary encodings.
-
- * Implement `encode()` function for creating data URLs.

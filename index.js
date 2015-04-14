@@ -48,3 +48,21 @@ function decode(uri) {
 }
 
 exports.decode = decode;
+
+function encode(input, mediatype) {
+  mediatype = mediatype || 'application/octet-stream';
+
+  var buf;
+  if (Buffer.isBuffer(input)) {
+    buf = input;
+  } else if (typeof(input) == 'string') {
+    buf = new Buffer(input, 'utf8');
+  } else {
+    // TODO: support streams?
+    throw new Error('Invalid input, expected Buffer or string');
+  }
+  // opinionatedly base64
+  return 'data:' + mediatype + ';base64,' + buf.toString('base64');
+}
+
+exports.encode = encode;

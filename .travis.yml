@@ -4,3 +4,6 @@ node_js:
   - "0.10"
   - "0.12"
   - "io.js"
+
+before_install:
+ - if node -v | grep "^v0\.8" > /dev/null; then npm install -g npm@~1.4.6; fi

@@ -37,3 +37,8 @@ Things that would be nice to have too:
  * Parse mediaType information and extract charset (encoding) value. This is
    needed to convert the returned Buffer into a string in cases where
    the application has to support arbitrary encodings.
+
+## Command-line access
+
+To keep this project small and light, no command-line tool is provided.  If you
+need one, please consider [data-colon](https://github.com/hildjj/data-colon).

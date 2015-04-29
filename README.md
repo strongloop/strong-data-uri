@@ -12,13 +12,19 @@ as well as an encoder for those URIs.
 
 ```js
 var dataUri = require('strong-data-uri');
-var uri = 'data:text/plain;base64,aGVsbG8gd29ybGQ=';
+var uri = 'data:text/plain;charset=iso-8859-1;base64,aGVsbG8gd29ybGQ=';
 
 var buffer = dataUri.decode(uri);
 console.log(buffer);
 // <Buffer 68 65 6c 6c 6f 20 77 6f 72 6c 64>
 console.log(buffer.toString('ascii'));
 // Hello world
+console.log(buffer.mimetype);
+// text/plain
+console.log(buffer.mediatype);
+// text/plain;charset=iso-8859-1
+console.log(buffer.charset);
+// iso-8859-1
 
 uri = dataUri.encode('foo');
 console.log(uri);
@@ -27,16 +33,6 @@ uri = dataUri.encode(new Buffer('foo', 'utf8'), 'text/plain');
 console.log(uri);
 // data:text/plain;base64,Zm9v
 ```
-
-## Status
-
-The module can parse both base64-encoded and url-encoded URLs at the moment.
-
-Things that would be nice to have too:
-
- * Parse mediaType information and extract charset (encoding) value. This is
-   needed to convert the returned Buffer into a string in cases where
-   the application has to support arbitrary encodings.
 
 ## Command-line access
 

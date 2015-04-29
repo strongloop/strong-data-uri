@@ -90,13 +90,13 @@ function decode(uri) {
 exports.decode = decode;
 
 function encode(input, mediatype) {
-  mediatype = mediatype || 'application/octet-stream';
-
   var buf;
   if (Buffer.isBuffer(input)) {
     buf = input;
+    mediatype = mediatype || 'application/octet-stream';
   } else if (typeof(input) == 'string') {
     buf = new Buffer(input, 'utf8');
+    mediatype = mediatype || 'text/plain;charset=UTF-8';
   } else {
     // TODO: support streams?
     throw new Error('Invalid input, expected Buffer or string');

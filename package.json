@@ -1,6 +1,6 @@
 {
   "name": "strong-data-uri",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Parser for `data:` URIs",
   "license": {
     "name": "Dual MIT/StrongLoop",

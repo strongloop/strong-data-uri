@@ -31,11 +31,23 @@ describe('encode', function() {
     expect(uri).to.equal('data:text/plain;base64,Zm9v');
   });
 
+  it('creates from buffer with default mediatype', function() {
+    var uri = dataUri.encode(new Buffer('foo', 'utf8'));
+    expect(uri).to.be.a('string');
+    expect(uri).to.equal('data:application/octet-stream;base64,Zm9v');
+  });
+
   it('creates from string', function() {
+    var uri = dataUri.encode('<foo/>', 'text/xml');
+    expect(uri).to.be.a('string');
+    expect(uri).to.equal('data:text/xml;base64,PGZvby8+');
+  });
+
+  it('creates from string with default mediatype', function() {
     // default mediatype
     var uri = dataUri.encode('foo');
     expect(uri).to.be.a('string');
-    expect(uri).to.equal('data:application/octet-stream;base64,Zm9v');
+    expect(uri).to.equal('data:text/plain;charset=UTF-8;base64,Zm9v');
   });
 
   it('throws with null input', function() {

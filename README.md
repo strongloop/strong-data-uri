@@ -40,18 +40,19 @@ argument can be a `Buffer` or a `String`. Strings are converted to buffers
 using `utf-8` encoding.
 
 If `mediatype` is not specified, then `application/octet-stream` is used
-as a default.
+as a default if the data is a Buffer, and `text/plain;charset=UTF-8` if
+the data is a String.
 
 ```js
 var dataUri = require('strong-data-uri');
 
 uri = dataUri.encode('foo');
 console.log(uri);
-// data:application/octet-stream;base64,Zm9v
+// data:text/plain;charset=UTF-8;base64,Zm9v
 
-uri = dataUri.encode(new Buffer('foo', 'utf8'), 'text/plain');
+uri = dataUri.encode(new Buffer('<foo/>', 'utf8'), 'text/xml');
 console.log(uri);
-// data:text/plain;base64,Zm9v
+// data:text/xml;base64,PGZvby8+
 ```
 
 ## Command-line access

@@ -1,6 +1,6 @@
 {
   "name": "strong-data-uri",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Parser and builder for `data:` URIs",
   "license": "(MIT OR LicenseRef-LICENSE.md)",
   "main": "index.js",

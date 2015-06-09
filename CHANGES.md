@@ -1,3 +1,9 @@
+2015-06-09, Version 1.0.1
+=========================
+
+ * Fix package.json: license, description (Miroslav Bajtoš)
+
+
 2015-05-06, Version 1.0.0
 =========================
 

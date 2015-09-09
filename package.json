@@ -2,7 +2,7 @@
   "name": "strong-data-uri",
   "version": "1.0.1",
   "description": "Parser and builder for `data:` URIs",
-  "license": "(Artistic-2.0 OR LicenseRef-LICENSE.md)",
+  "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
   "scripts": {
     "pretest": "jshint *.js test",

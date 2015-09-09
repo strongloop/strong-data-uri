@@ -1,3 +1,11 @@
+2015-09-09, Version 1.0.2
+=========================
+
+ * package: fix license field (Miroslav Bajtoš)
+
+ * package.json: correct license info (Bert Belder)
+
+
 2015-06-09, Version 1.0.1
 =========================
 

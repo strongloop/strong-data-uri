@@ -1,3 +1,11 @@
+2015-09-21, Version 1.0.3
+=========================
+
+ * Consistent license expressions (Sam Roberts)
+
+ * Correct SPDX identifier (Sebastiaan Deckers)
+
+
 2015-09-09, Version 1.0.2
 =========================
 

@@ -1,3 +1,13 @@
+2016-05-04, Version 1.0.4
+=========================
+
+ * update/insert copyrights (Ryan Graham)
+
+ * relicense as Artistic-2.0 only (Ryan Graham)
+
+ * Refer to licenses with a link (Sam Roberts)
+
+
 2015-09-21, Version 1.0.3
 =========================
 

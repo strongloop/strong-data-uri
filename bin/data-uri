@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var dataUri = require('..');
+var mime = require('mime');
+
+// decode: data-uri data:foo
+// encode: data-uri filename
+// decode: data-uri < filename-starting-with-data:
+// encode: data-uri < filename
+
+// TODO: pick a command-line processing package, and add -m <media-type>
+
+process.argv.forEach(function(arg, i) {
+  if (i < 2) { return; }
+  if (arg.match(/^data:/)) {
+    process.stdout.write(dataUri.decode(arg));
+  } else {
+    fs.readFile(arg, function(err, data) {
+      if (err) {
+        process.stderr.write(err);
+        return;
+      }
+
+      console.log(dataUri.encode(data, mime.lookup(arg)));
+    })
+  }
+});
+
+var input = [];
+process.stdin.on('data', function(buf) {
+  input.push(buf);
+});
+process.stdin.on('end', function() {
+    var all = Buffer.concat(input)
+    if (all.length == 0) { return; }
+    // Note: invalid UTF-8 doesn't throw an error,
+    // it returns the replacement character
+    if ((all.length < 5) || (all.slice(0,5).toString('utf8') !== 'data:')) {
+      console.log(dataUri.encode(all));
+    } else {
+      process.stdout.write(dataUri.decode(all.toString('utf8')));
+    }
+});
+process.stdin.resume();

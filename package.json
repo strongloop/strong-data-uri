@@ -4,6 +4,9 @@
   "description": "Parser and builder for `data:` URIs",
   "license": "Artistic-2.0",
   "main": "index.js",
+  "bin": {
+    "data-uri": "./bin/data-uri"
+  },
   "scripts": {
     "pretest": "jshint *.js test",
     "test": "istanbul test -- _mocha -R spec",
@@ -18,6 +21,7 @@
     "email": "miroslav@strongloop.com"
   },
   "dependencies": {
+    "mime": "^1.3.4",
     "truncate": "~1.0.2"
   },
   "devDependencies": {

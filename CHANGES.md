@@ -1,4 +1,14 @@
-2016-05-04, Version 1.0.4
+2018-02-26, Version 1.0.5
+=========================
+
+ * Travis: add Node.js versions 4, 6 and 8 (Miroslav Bajtoš)
+
+ * Update truncate from 1.x to 2.x (Miroslav Bajtoš)
+
+ * Update URLs in CONTRIBUTING.md (#21) (Ryan Graham)
+
+
+2016-05-03, Version 1.0.4
 =========================
 
  * update/insert copyrights (Ryan Graham)

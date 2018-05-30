@@ -41,7 +41,7 @@ function decode(uri) {
   //  data       := *urlchar
   //  parameter  := attribute "=" value
 
-  var m = /^data:([^;,]+)?((?:;(?:[^;,]+))*?)(;base64)?,(.*)/.exec(uri);
+  var m = /^data:([^;,]+)?((?:;(?:[^;,]+))*?)(;base64)?,(.*)$/.exec(uri);
   if (!m) {
     throw new Error('Not a valid data URI: "' + truncate(uri, 20) + '"');
   }

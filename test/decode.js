@@ -134,4 +134,16 @@ describe('decode', function() {
     expect(function() { dataUri.decode('data:text/plain'); })
       .to.throw(/^Not a valid data URI/);
   });
+
+  it('throws when URI contains new lines', function() {
+    // otherwise decode returns the first line of content
+    // and the caller is none the wiser
+    expect(function() { dataUri.decode('data:text/plain,hello\nworld'); })
+      .to.throw(/^Not a valid data URI/);
+  });
+
+  it('throws when URI contains carriage return', function() {
+    expect(function() { dataUri.decode('data:text/plain,hello\rworld'); })
+      .to.throw(/^Not a valid data URI/);
+  });
 });

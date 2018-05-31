@@ -1,3 +1,11 @@
+2018-05-31, Version 1.0.6
+=========================
+
+ * Travis: add Node.js 10, remove legacy versions (Miroslav Bajtoš)
+
+ * fix: reject data uris containing CR or LF (Mark Vayngrib)
+
+
 2018-02-26, Version 1.0.5
 =========================
 

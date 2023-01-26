@@ -6,8 +6,7 @@
   "main": "index.js",
   "scripts": {
     "pretest": "jshint *.js test",
-    "test": "istanbul test -- _mocha -R spec",
-    "posttest": "test -z $npm_config_coverage || istanbul report"
+    "test": "nyc -r lcov _mocha -R spec"
   },
   "repository": {
     "type": "git",
@@ -18,15 +17,15 @@
     "email": "miroslav@strongloop.com"
   },
   "dependencies": {
-    "truncate": "^2.0.1"
+    "truncate": "^3.0.0"
   },
   "devDependencies": {
-    "mocha": "~1.17.1",
-    "jshint": "~2.4.3",
-    "istanbul": "~0.2.4",
-    "chai": "~1.8.1"
+    "chai": "~4.3.7",
+    "jshint": "~2.13.6",
+    "mocha": "~10.2.0",
+    "nyc": "15.1.0"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=14"
   }
 }

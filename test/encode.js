@@ -31,13 +31,13 @@ var dataUri = require('..');
 
 describe('encode', function() {
   it('creates from buffer', function() {
-    var uri = dataUri.encode(new Buffer('foo', 'utf8'), 'text/plain');
+    var uri = dataUri.encode(Buffer.from('foo', 'utf8'), 'text/plain');
     expect(uri).to.be.a('string');
     expect(uri).to.equal('data:text/plain;base64,Zm9v');
   });
 
   it('creates from buffer with default mediatype', function() {
-    var uri = dataUri.encode(new Buffer('foo', 'utf8'));
+    var uri = dataUri.encode(Buffer.from('foo', 'utf8'));
     expect(uri).to.be.a('string');
     expect(uri).to.equal('data:application/octet-stream;base64,Zm9v');
   });

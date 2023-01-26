@@ -1,3 +1,20 @@
+TBD, Version 2.0.0
+=========================
+
+* Update truncate from 2.x to 3.x
+
+* Update dev dependencies to latest
+
+* Replace deprecated package istanbul with nyc
+
+* Require Node.js 14+ (Breaking change)
+
+* Travis: add Node.js 14,16,18,19 support, remove legacy versions
+
+* Remove instances of deprecated `new Buffer`
+
+* Ensure extraneous files are not bundled into package with .npmignore
+
 2018-05-31, Version 1.0.6
 =========================
 

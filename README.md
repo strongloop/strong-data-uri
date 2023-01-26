@@ -50,7 +50,7 @@ uri = dataUri.encode('foo');
 console.log(uri);
 // data:text/plain;charset=UTF-8;base64,Zm9v
 
-uri = dataUri.encode(new Buffer('<foo/>', 'utf8'), 'text/xml');
+uri = dataUri.encode(Buffer.from('<foo/>', 'utf8'), 'text/xml');
 console.log(uri);
 // data:text/xml;base64,PGZvby8+
 ```

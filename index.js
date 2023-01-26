@@ -80,9 +80,9 @@ function decode(uri) {
   }
 
   if (b64) {
-    result = new Buffer(body, 'base64');
+    result = Buffer.from(body, 'base64');
   } else {
-    result = new Buffer(decodeURIComponent(body), 'ascii');
+    result = Buffer.from(decodeURIComponent(body), 'ascii');
   }
 
   result.mimetype  = mimetype;
@@ -100,7 +100,7 @@ function encode(input, mediatype) {
     buf = input;
     mediatype = mediatype || 'application/octet-stream';
   } else if (typeof(input) == 'string') {
-    buf = new Buffer(input, 'utf8');
+    buf = Buffer.from(input, 'utf8');
     mediatype = mediatype || 'text/plain;charset=UTF-8';
   } else {
     // TODO: support streams?
